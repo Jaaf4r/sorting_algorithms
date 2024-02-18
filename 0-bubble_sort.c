@@ -24,22 +24,22 @@ void swap_ints(int *a, int *b)
 */
 void bubble_sort(int *array, size_t size)
 {
-	size_t i = 0, len = size - 1;
-	int flag = 1;
+	size_t i, len = size;
+	bool flag = false;
 
 	if (array == NULL || size < 2)
 		return;
 
-	while (flag == 1)
+	while (flag == false)
 	{
-		flag = 0;
-		for (i = 0; i < len; i++)
+		flag = true;
+		for (i = 0; i < len - 1; i++)
 		{
 			if (array[i] > array[i + 1])
 			{
 				swap_ints(array + i, array + i + 1);
 				print_array(array, size);
-				flag = 1;
+				flag = false;
 			}
 		}
 		len--;
